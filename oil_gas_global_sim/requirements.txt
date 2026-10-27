@@ -1,0 +1,11 @@
+pydantic>=2.7
+networkx>=3.3
+numpy>=1.26
+rich>=13.7
+simpy>=4.1
+scipy>=1.13
+pandas>=2.2
+fastapi>=0.111
+uvicorn[standard]>=0.30
+websockets>=12.0
+PySide6>=6.7

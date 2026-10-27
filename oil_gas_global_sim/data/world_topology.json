@@ -1,0 +1,6 @@
+{
+  "meta": "Placeholder for exported world topology. On later stages this can be generated from core.world_graph.WorldLogisticsGraph.",
+  "nodes": [],
+  "maritime_edges": [],
+  "pipeline_edges": []
+}

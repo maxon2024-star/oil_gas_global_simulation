@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Oil & Gas 3D Digital Twin — Viewport</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <!-- Встроенный IPC-мост Qt6 WebChannel (без WebSockets и без интернета) -->
+  <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+  <!-- 3D-движок планеты Земля поверх Three.js -->
+  <script src="https://unpkg.com/globe.gl"></script>
+</head>
+<body>
+  <div id="viewport-container">
+    <div id="globeViz"></div>
+
+    <!-- Верхний оверлей статуса IPC и легенды слоев на 3D-сцене -->
+    <div id="globe-overlay-top">
+      <div class="badge-ipc">
+        <span class="pulse-dot"></span>
+        <span id="ipc-status-text">IPC: QtWebChannel + SharedMemory (512 KB)</span>
+      </div>
+      <div class="layer-toggles">
+        <button class="hud-btn active" id="btn-toggle-pipes" onclick="toggleLayer('pipes')">Трубопроводы</button>
+        <button class="hud-btn active" id="btn-toggle-routes" onclick="toggleLayer('routes')">Морские трассы</button>
+        <button class="hud-btn active" id="btn-toggle-storms" onclick="toggleLayer('storms')">Купола катаклизмов</button>
+        <button class="hud-btn" id="btn-reset-cam" onclick="resetCamera()">Сброс камеры</button>
+      </div>
+    </div>
+
+    <!-- Всплывающая карточка выбранного на 3D-глобусе танкера или терминала -->
+    <div id="inspector-card" class="hidden">
+      <div class="inspector-header">
+        <strong id="insp-title">Объект</strong>
+        <button class="close-btn" onclick="closeInspector()">×</button>
+      </div>
+      <div id="insp-body"></div>
+    </div>
+
+    <!-- Нижняя легенда цветовой кодировки -->
+    <div id="globe-legend">
+      <span><i class="dot" style="background:#38bdf8"></i> Западный флот (P&I)</span>
+      <span><i class="dot" style="background:#f97316"></i> Теневой флот (Shadow)</span>
+      <span><i class="dot" style="background:#10b981"></i> Нейтральный гос. флот</span>
+      <span><i class="dot" style="background:#a855f7"></i> Магистральная труба</span>
+      <span><i class="dot" style="background:#ef4444"></i> Зона катаклизма / Блокада</span>
+    </div>
+  </div>
+
+  <script src="globe_renderer.js"></script>
+</body>
+</html>

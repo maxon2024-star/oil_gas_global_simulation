@@ -1,0 +1,164 @@
+/* frontend_3d/dashboard.css */
+:root {
+  --bg: #020617;
+  --glass: rgba(9, 16, 34, 0.84);
+  --border: rgba(56, 189, 248, 0.28);
+  --cyan: #38bdf8;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #081229 0%, #020617 100%);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+#viewport-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#globeViz {
+  width: 100%;
+  height: 100%;
+}
+
+#globe-overlay-top {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.badge-ipc {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--cyan);
+  backdrop-filter: blur(8px);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.layer-toggles {
+  pointer-events: auto;
+  display: flex;
+  gap: 6px;
+}
+
+.hud-btn {
+  background: var(--glass);
+  color: var(--text);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  padding: 6px 11px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.hud-btn.active {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: rgba(56, 189, 248, 0.14);
+}
+
+.hud-btn:hover {
+  border-color: #7dd3fc;
+}
+
+#inspector-card {
+  position: absolute;
+  bottom: 48px;
+  left: 14px;
+  width: 310px;
+  background: var(--glass);
+  border: 1px solid var(--cyan);
+  border-radius: 8px;
+  padding: 12px;
+  backdrop-filter: blur(10px);
+  z-index: 20;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+#inspector-card.hidden {
+  display: none;
+}
+
+.inspector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  color: var(--cyan);
+  font-size: 13px;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#insp-body {
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+#globe-legend {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  gap: 16px;
+  background: var(--glass);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--muted);
+  z-index: 10;
+  width: fit-content;
+}
+
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
