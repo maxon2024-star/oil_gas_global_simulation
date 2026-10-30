@@ -11,14 +11,8 @@
 | Контур | Модули проекта | Стек технологий | Зона ответственности |
 | --- | --- | --- | --- |
 | **1. Core Simulation & Logistics Engine** | `core/config.py`, `core/models.py`, `core/world_graph.py`, `core/simulation.py` | `Python 3.11+`, `SimPy`, `NetworkX`, `Pydantic v2` | Сферический мультиграф Земли (32 узла), непрерывная гидродинамика промыслов, трубопроводов и НПЗ, многоканальные СМО портов и проливов, конечные автоматы 42 танкеров.
-
- |
 | **2. Chaos, Market & Geopolitics Engine** | `engines/routing.py`, `engines/market.py`, `engines/chaos.py` | `NumPy`, `SciPy`, `NetworkX` ($A^*$) | Динамическая маршрутизация $A^*$ с учетом осадки судов и пробок в проливах, матрица санкционного комплаенса (Price Cap vs Shadow Fleet), стохастическое ценообразование, генерация ураганов, блокад и диверсий.
-
- |
-| **3. 3D Earth & IPC Situational Center** | `core/ipc_bus.py`, `core/desktop_app.py`, `frontend_3d/*` | `PySide6 (Qt6)`, `QWebChannel`, `multiprocessing.shared_memory`, `Globe.gl / Three.js` | Нативное многопроцессное десктопное приложение без сетевых сокетов (**Zero-Socket IPC**): обмен телеметрией через разделяемую память ОС (`SharedMemory` + `Pipe`), аппаратный 3D-глобус Земли и «Пульт Бога».
-
- |
+| **3. 3D Earth & IPC Situational Center** | `core/ipc_bus.py`, `core/desktop_app.py`, `frontend_3d/*` | `PySide6 (Qt6)`, `QWebChannel`, `multiprocessing.shared_memory`, `Globe.gl / Three.js` | Нативное многопроцессное десктопное приложение без сетевых сокетов (**Zero-Socket IPC**): обмен телеметрией через разделяемую память ОС (`SharedMemory` + `Pipe`), аппаратный 3D-глобус Земли и «Пульт Бога».|
 
 ---
 
@@ -120,83 +114,7 @@ $$R^{\text{charter}}_k(t) = R^{\text{base}}_k \cdot \left(1 + 1.6 \cdot \max\lef
 
 | Код (`CommodityType`) | Наименование | Базовая цена ($/барр. или б.н.э.) | Плотность (°API) | Сера (%) | Испарение BOG (%/сутки) |
 | --- | --- | --- | --- | --- | --- |
-| `BRENT` | Brent Crude (Северное море)
-
- | $\$82.50$
-
- | $38.0$
-
- | $0.37\%$
-
- | $0.00\%$
-
- |
-| `URALS` | Urals Blend (Экспортная смесь РФ)
-
- | $\$68.00$
-
- | $31.7$
-
- | $1.45\%$
-
- | $0.00\%$
-
- |
-| `ESPO` | ESPO Blend (ВСТО / Козьмино)
-
- | $\$76.50$
-
- | $34.8$
-
- | $0.55\%$
-
- | $0.00\%$
-
- |
-| `ARAB_LIGHT` | Arabian Light (Саудовская Аравия)
-
- | $\$83.00$
-
- | $33.0$
-
- | $1.80\%$
-
- | $0.00\%$
-
- |
-| `WTI` | West Texas Intermediate (США)
-
- | $\$78.50$
-
- | $39.6$
-
- | $0.24\%$
-
- | $0.00\%$
-
- |
-| `CPC_BLEND` | CPC Blend (Кашаган / Тенгиз КТК)
-
- | $\$81.00$
-
- | $45.3$
-
- | $0.56\%$
-
- | $0.00\%$
-
- |
-| `LNG` | Liquefied Natural Gas (СПГ, криогенный)
-
- | $\$95.00$
-
- | $60.0$
-
- | $0.00\%$
-
- | $0.12\%$
-
- |
+| `BRENT` | Brent Crude (Северное море) | $\$82.50$ | $38.0$ | $0.37\%$ | $0.00\%$|| `URALS` | Urals Blend (Экспортная смесь РФ)| $\$68.00$ | $31.7$ | $1.45\%$| $0.00\%$ || `ESPO` | ESPO Blend (ВСТО / Козьмино) | $\$76.50$ | $34.8$ | $0.55\%$ | $0.00\%$ || `ARAB_LIGHT` | Arabian Light (Саудовская Аравия) | $\$83.00$ | $33.0$ | $1.80\%$ | $0.00\%$ || `WTI` | West Texas Intermediate (США) | $\$78.50$ | $39.6$ | $0.24\%$ | $0.00\%$ || `CPC_BLEND` | CPC Blend (Кашаган / Тенгиз КТК) | $\$81.00$ | $45.3$ | $0.56\%$ | $0.00\%$ || `LNG` | Liquefied Natural Gas (СПГ, криогенный) | $\$95.00$ | $60.0$ | $0.00\%$ | $0.12\%$ |
 
 ### 3.2. Классы танкеров и газовозов (`VESSEL_SPECS`)
 
