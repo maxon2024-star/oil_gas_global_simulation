@@ -187,7 +187,6 @@ pip install -r requirements.txt
 
 ```powershell
 python .\main.py
-
 ```
 
 **Возможности интерфейса Ситуационного Центра:**
