@@ -40,7 +40,7 @@ $$V_{i,c}(t + \Delta t) = \text{clip}\left(V_{i,c}(t) + \left(Q^{\text{prod}}_{i
 
 Дебит добывающего промысла зависит от коэффициента заполнения хранилищ $\eta_i(t) = \frac{\sum_c V_{i,c}(t)}{\sum_c C^{\text{max}}_{i,c}}$ и погодной эффективности $w_i(t) \in [0, 1]$:
 
-$$Q^{\text{prod}}_i(t) = \begin{cases} Q^{\text{nom}}_i \cdot w_i(t), & \text{если } \eta_i(t) < 0.95 \quad (\text{статус } \mathbf{ACTIVE}) \\ 0.35 \cdot Q^{\text{nom}}_i \cdot w_i(t), & \text{если } 0.95 \le \eta_i(t) < 0.998 \quad (\text{прижатие штуцеров } \mathbf{THROTTLED}) \\ 0, & \text{если } \eta_i(t) \ge 0.998 \quad (\text{аварийная консервация } \mathbf{SHUT\_IN\_TANK\_TOP}) \end{cases}$$
+$$Q^{\text{prod}}_i(t) = \begin{cases} Q^{\text{nom}}_i \cdot w_i(t), & \text{если } \eta_i(t) < 0.95 \quad (\text{статус } \text{\textbf{ACTIVE}}) \\ 0.35 \cdot Q^{\text{nom}}_i \cdot w_i(t), & \text{если } 0.95 \le \eta_i(t) < 0.998 \quad (\text{прижатие штуцеров } \text{\textbf{THROTTLED}}) \\ 0, & \text{если } \eta_i(t) \ge 0.998 \quad (\text{аварийная консервация } \text{\textbf{SHUT\_IN\_TANK\_TOP}}) \end{cases}$$
 
 При наступлении события **«Tank Tops»** ($\eta_i \ge 0.998$ или заполнении любого целевого бака на $99.9\%$) скважины глушатся, начисляется штраф консервации $\$350\,000$ и запускается таймер технологического простоя $T_{\text{cooldown}} = 24\text{ ч}$, до истечения которого добыча не может быть возобновлена.
 
